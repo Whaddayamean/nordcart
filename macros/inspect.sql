@@ -112,7 +112,7 @@
         {% set db = nc_raw_database() %}
     {% else %}
         {% set schemas = [prefix] %}
-        {% for layer in ['staging', 'intermediate', 'marts', 'reports', 'ref', 'snapshots'] %}
+        {% for layer in ['staging', 'intermediate', 'marts', 'reports', 'ref'] %}
             {% do schemas.append(prefix ~ '_' ~ layer) %}
         {% endfor %}
         {% set db = target.database %}

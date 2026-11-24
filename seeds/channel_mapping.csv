@@ -1,6 +1,0 @@
-channel_code,channel_group,is_digital
-web,Online,true
-app_ios,App,true
-app_android,App,true
-marketplace,Marketplace,true
-phone,Assisted,false

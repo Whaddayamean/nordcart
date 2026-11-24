@@ -1,7 +1,0 @@
-snapshots:
-  - name: snap_customers
-    relation: ref('stg_customers')
-    config:
-      unique_key: customer_id
-      strategy: check
-      check_cols: [segment, email, is_active]

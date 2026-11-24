@@ -71,9 +71,9 @@
 
 {% macro nc_scales() %}
     {{ return({
-        'tiny':   {'customers': 2000,   'products': 300,  'orders': 10000,  'events': 100000,  'days': 120},
-        'small':  {'customers': 25000,  'products': 2000, 'orders': 150000, 'events': 1500000, 'days': 365},
-        'medium': {'customers': 120000, 'products': 8000, 'orders': 900000, 'events': 9000000, 'days': 540},
+        'tiny':   {'customers': 2000,   'products': 300,  'orders': 10000,  'days': 120},
+        'small':  {'customers': 25000,  'products': 2000, 'orders': 150000, 'days': 365},
+        'medium': {'customers': 120000, 'products': 8000, 'orders': 900000, 'days': 540},
     }) }}
 {% endmacro %}
 

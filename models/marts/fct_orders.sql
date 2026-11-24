@@ -4,15 +4,12 @@
     unique_key='order_id',
     on_schema_change='append_new_columns'
 ) }}
--- Classic "high-watermark on _loaded_at" incremental. This pattern by itself ignores silent
--- updates, deletes and late arrivals, with or without a state tool; build a --full-refresh
--- reference (`./demo build reference`) to tell incremental behaviour apart from tool behaviour.
-select
-    e.*,
-    ch.channel_group,
-    ch.is_digital
-from {{ ref('int_orders_enriched') }} e
-left join {{ ref('dim_channels') }} ch using (channel_code)
+-- Incremental model with a "high-watermark" on _loaded_at: each run only merges orders loaded
+-- after the newest one already in the table. On its own, this pattern ignores silent updates,
+-- deletes and late-arriving rows, with or without a state tool. Compare against the
+-- --full-refresh reference to tell the model's behaviour apart from the tools' behaviour.
+select *
+from {{ ref('int_orders_enriched') }}
 {% if is_incremental() %}
-where e._loaded_at > (select max(_loaded_at) from {{ this }})
+where _loaded_at > (select max(_loaded_at) from {{ this }})
 {% endif %}

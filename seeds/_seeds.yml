@@ -4,7 +4,3 @@ seeds:
     columns:
       - name: country_code
         data_tests: [unique, not_null]
-  - name: channel_mapping
-    columns:
-      - name: channel_code
-        data_tests: [unique, not_null]
