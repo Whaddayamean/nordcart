@@ -16,6 +16,11 @@ vars:
   # nc_raw_schema: nordcart_raw
   enable_python_model: false   # see models/marts/py_customer_segments.py
 
+# Records each node's outcome (built / reused / ...) per tool in <catalog>.nordcart_runlog.node_results.
+# See macros/run_log.sql and the "Compare the decisions" query in the README.
+on-run-end:
+  - "{{ nc_log_results(results) }}"
+
 models:
   nordcart:
     # ------------------------------------------------------------------------------------------
