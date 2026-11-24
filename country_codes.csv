@@ -1,0 +1,13 @@
+country_code,country_name,region,vat_rate
+CZ,Czechia,CEE,0.21
+SK,Slovakia,CEE,0.23
+DE,Germany,DACH,0.19
+AT,Austria,DACH,0.20
+PL,Poland,CEE,0.23
+HU,Hungary,CEE,0.27
+NL,Netherlands,Benelux,0.21
+FR,France,Western,0.20
+IT,Italy,Southern,0.22
+ES,Spain,Southern,0.21
+SE,Sweden,Nordics,0.25
+DK,Denmark,Nordics,0.25
