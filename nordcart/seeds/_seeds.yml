@@ -1,0 +1,10 @@
+version: 2
+seeds:
+  - name: country_codes
+    columns:
+      - name: country_code
+        data_tests: [unique, not_null]
+  - name: channel_mapping
+    columns:
+      - name: channel_code
+        data_tests: [unique, not_null]

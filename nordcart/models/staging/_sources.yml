@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: raw
+    description: NordCart raw layer, generated in-warehouse by `dbt run-operation nc_init` (macros/datagen).
+    database: "{{ var('nc_raw_database', target.database) }}"
+    schema: "{{ var('nc_raw_schema', 'nordcart_raw') }}"
+    config:
+      # Not needed by dbt State or dbt-hodor on Snowflake/Databricks (they read warehouse metadata),
+      # but handy if you also want to try `dbt source freshness`.
+      loaded_at_field: _loaded_at
+    tables:
+      - name: orders               # hourly   (nc_tick hourly)
+      - name: order_items          # hourly
+      - name: payments             # hourly
+      - name: web_events           # hourly, high volume
+      - name: customers            # daily    (nc_tick daily)
+      - name: inventory_snapshots  # daily
+      - name: fx_rates             # daily
+      - name: products             # weekly   (nc_tick weekly)
+      - name: marketing_spend      # weekly
+      - name: support_tickets      # dormant: loaded once, never changes
+      - name: legacy_store_sales   # frozen since 2024
