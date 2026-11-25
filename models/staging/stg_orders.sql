@@ -1,3 +1,4 @@
+-- a beautiful stg_orders model doc
 select
     order_id,
     customer_id,
@@ -12,3 +13,4 @@ select
     status in ('completed', 'shipped') as is_revenue,
     _loaded_at
 from {{ source('raw', 'orders') }}
+
