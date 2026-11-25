@@ -5,8 +5,6 @@ sources:
     description: NordCart raw layer, generated in-warehouse by `dbt run-operation nc_init` (macros/datagen).
     database: "{{ var('nc_raw_database', target.database) }}"
     schema: "{{ var('nc_raw_schema', 'nordcart_raw') }}"
-    config:
-      loaded_at_field: _loaded_at
     tables:
       - name: orders            # hourly  (nc_tick hourly)
       - name: order_items       # hourly
