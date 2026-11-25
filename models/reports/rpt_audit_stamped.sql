@@ -1,5 +1,6 @@
 -- Run metadata baked into the SQL: '{{ invocation_id }}' differs on every run, so the
 -- compiled SQL changes every time even though the logic does not.
+{{ config(state={'compare_unrendered_code': true}) }}
 select
     order_date,
     sum(net_amount)                                              as net_amount,
