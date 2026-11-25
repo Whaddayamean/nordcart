@@ -1,7 +1,7 @@
 select
     order_date,
     country_code,
-    count(*)                                   as orders,
+    count(order_id)                                   as orders,
     sum(units)                                 as units,
     sum(gross_amount)                          as gross_amount,
     sum(discount_amount)                       as discount_amount,
